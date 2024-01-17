@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerReportFormForm">
+   <children>
+      <Rectangle arcWidth="5.0" height="42.0" layoutX="6.0" layoutY="5.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" width="587.0" />
+      <JFXButton layoutX="13.0" layoutY="14.0" style="-fx-background-color: brown;" text="Back" textFill="WHITE" />
+      <Rectangle arcWidth="5.0" height="334.0" layoutX="6.0" layoutY="54.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" width="587.0" />
+      <Label layoutX="226.0" layoutY="16.0" text="Customer Report" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <TableView layoutX="14.0" layoutY="131.0" prefHeight="200.0" prefWidth="571.0">
+        <columns>
+          <TableColumn prefWidth="67.0" text="Cust ID" />
+          <TableColumn prefWidth="116.0" text="Name" />
+            <TableColumn prefWidth="110.0" text="Item" />
+            <TableColumn prefWidth="114.0" text="Email" />
+            <TableColumn prefWidth="98.0" text="Order Status" />
+            <TableColumn prefWidth="65.0" text="Option" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

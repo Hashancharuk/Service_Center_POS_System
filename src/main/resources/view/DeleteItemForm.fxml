@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DeleteItemFormController">
+   <children>
+      <Rectangle arcWidth="5.0" height="42.0" layoutX="6.0" layoutY="5.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" width="587.0" />
+      <Label layoutX="250.0" layoutY="16.0" text="Delete Item" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Rectangle arcWidth="5.0" height="335.0" layoutX="6.0" layoutY="55.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" width="587.0" />
+      <Label layoutX="32.0" layoutY="165.0" text="Item Category  : " textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="132.0" text="Item Name        : " textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="164.0" layoutY="93.0" prefHeight="25.0" prefWidth="164.0" />
+      <Label layoutX="32.0" layoutY="98.0" text="Item Code         : " textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="164.0" layoutY="127.0" prefHeight="25.0" prefWidth="164.0" />
+      <JFXButton buttonType="RAISED" layoutX="528.0" layoutY="357.0" onAction="#deleteButtonOnAction" ripplerFill="WHITE" style="-fx-background-color: darkred;" text="Delete" textFill="#fffdfd">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="13.0" layoutY="14.0" onAction="#backButtonOnAction" style="-fx-background-color: brown; -fx-background-radius: 8;" text="Back" textFill="WHITE" />
+      <TextField layoutX="164.0" layoutY="160.0" prefHeight="25.0" prefWidth="164.0" />
+      <JFXButton buttonType="RAISED" layoutX="347.0" layoutY="94.0" onAction="#searchButtonOnAction" ripplerFill="WHITE" style="-fx-background-color: darkred; -fx-background-radius: 8;" text="Search" textFill="#fffdfd">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="employeePane" prefHeight="595.0" prefWidth="846.0" style="-fx-background-color: saddleBrown;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeRegisterFormController">
+   <children>
+      <ImageView fitHeight="597.0" fitWidth="874.0" layoutX="1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Electronic.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#000000aa" height="51.0" layoutX="33.0" layoutY="34.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" width="796.0" />
+      <Label layoutX="348.0" layoutY="49.0" text="Employee Form" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#4f4c4cc9" height="485.0" layoutX="33.0" layoutY="92.0" stroke="BLACK" strokeType="INSIDE" width="796.0">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></Rectangle>
+      <Label layoutX="89.0" layoutY="142.0" text="Employee ID " textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="89.0" layoutY="176.0" text="Employee Name" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtEmpName" layoutX="201.0" layoutY="172.0" prefHeight="25.0" prefWidth="225.0" />
+      <Label layoutX="89.0" layoutY="207.0" text="Email" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtEmpEmail" layoutX="201.0" layoutY="203.0" prefHeight="25.0" prefWidth="225.0" />
+      <JFXButton layoutX="713.0" layoutY="246.0" onAction="#saveButtonOnAction" ripplerFill="WHITE" style="-fx-background-color: darkred;" text="Save" textFill="#fffdfd">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtEmpID" layoutX="201.0" layoutY="139.0" prefHeight="25.0" prefWidth="225.0" />
+      <Label layoutX="461.0" layoutY="173.0" text="Contact Number" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtEmpContNum" layoutX="580.0" layoutY="169.0" prefHeight="25.0" prefWidth="225.0" />
+      <Label layoutX="462.0" layoutY="202.0" text="Address" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtEmpAddress" layoutX="581.0" layoutY="199.0" prefHeight="25.0" prefWidth="225.0" />
+      <JFXButton layoutX="48.0" layoutY="46.0" onAction="#backBtnOnAction" style="-fx-background-color: brown;" text="Back" textFill="WHITE" />
+      <Label layoutX="461.0" layoutY="143.0" text="Password" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="445.0" layoutY="120.0" orientation="VERTICAL" prefHeight="137.0" prefWidth="5.0" />
+      <TableView fx:id="tableEmployee" layoutX="89.0" layoutY="287.0" prefHeight="245.0" prefWidth="685.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="88.0" text="Employee ID" />
+          <TableColumn fx:id="colName" prefWidth="98.0" text="Name" />
+            <TableColumn fx:id="colEmail" prefWidth="116.0" text="Email" />
+            <TableColumn fx:id="colContNum" prefWidth="116.0" text="Contact Number" />
+            <TableColumn fx:id="colAddress" prefWidth="179.0" text="Address" />
+            <TableColumn fx:id="colOption" prefWidth="87.0" text="Option" />
+<!--            <TableColumn fx:id="colPassword" prefWidth="63.0" text="password" />-->
+        </columns>
+      </TableView>
+      <JFXButton layoutX="636.0" layoutY="246.0" onAction="#updateButtonOnAction" ripplerFill="WHITE" style="-fx-background-color: darkred;" text="Update" textFill="#fffdfd">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="706.0" layoutY="539.0" onAction="#reloadButtonOnAction" ripplerFill="WHITE" style="-fx-background-color: darkred;" text="Reload" textFill="#fffdfd">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <PasswordField fx:id="txtEmpPassword" layoutX="581.0" layoutY="139.0" prefHeight="25.0" prefWidth="225.0" />
+      <JFXButton layoutX="633.0" layoutY="539.0" onAction="#reportButtonOnAction" ripplerFill="WHITE" style="-fx-background-color: darkred;" text="Report" textFill="#fffdfd">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="addItemPane" prefHeight="583.0" prefWidth="847.0" style="-fx-background-color: saddlebrown;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddItemCategoryFormController">
+   <children>
+      <ImageView fitHeight="599.0" fitWidth="846.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Electronic.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#635858b8" height="51.0" layoutX="7.0" layoutY="7.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" width="832.0" />
+      <Label layoutX="403.0" layoutY="22.0" text="Add Item" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#5b5151ba" height="406.0" layoutX="98.0" layoutY="123.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" width="659.0" />
+      <Label layoutX="127.0" layoutY="198.0" text="Item Category  : " textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cmbCategory" layoutX="246.0" layoutY="194.0" prefHeight="25.0" prefWidth="164.0" style="-fx-background-color: white;" unFocusColor="BLACK" />
+      <Label layoutX="125.0" layoutY="233.0" text="Item Name        : " textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtItemName" layoutX="247.0" layoutY="229.0" prefHeight="25.0" prefWidth="164.0" />
+      <Label layoutX="125.0" layoutY="164.0" text="Item Code         : " textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtItemCode" layoutX="246.0" layoutY="160.0" prefHeight="25.0" prefWidth="164.0" />
+      <JFXButton buttonType="RAISED" layoutX="464.0" layoutY="230.0" onAction="#savebtnOnAction" prefHeight="23.0" prefWidth="57.0" ripplerFill="WHITE" style="-fx-background-color: darkred;" text="Save" textFill="#fffdfd">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="23.0" layoutY="20.0" onAction="#backBtnOnAction" style="-fx-background-color: brown;" text="Back" textFill="WHITE" />
+      <TableView fx:id="tableItem" layoutX="161.0" layoutY="285.0" prefHeight="200.0" prefWidth="527.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="75.0" text="Item Code" />
+          <TableColumn fx:id="colCategory" prefWidth="176.0" text="Item Category" />
+            <TableColumn fx:id="colName" prefWidth="155.0" text="Item Name" />
+            <TableColumn fx:id="colOption" prefWidth="120.0" text="Option" />
+        </columns>
+      </TableView>
+      <Separator layoutX="442.0" layoutY="133.0" orientation="VERTICAL" prefHeight="142.0" prefWidth="0.0" />
+      <JFXButton buttonType="RAISED" layoutX="464.0" layoutY="193.0" onAction="#updateButtonOnAction" ripplerFill="WHITE" style="-fx-background-color: darkred;" text="Update" textFill="#fffdfd">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="631.0" layoutY="494.0" onAction="#reloadbtnOnAction" prefHeight="23.0" prefWidth="57.0" ripplerFill="WHITE" style="-fx-background-color: darkred;" text="Reload" textFill="#fffdfd">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

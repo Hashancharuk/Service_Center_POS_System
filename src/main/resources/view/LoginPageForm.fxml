@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="552.0" prefWidth="846.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginPageFormController">
+   <children>
+      <ImageView fitHeight="630.0" fitWidth="868.0" layoutX="-23.0" layoutY="-24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/NewBack.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="63.0" layoutY="169.0" prefHeight="301.0" prefWidth="297.0" style="-fx-background-color: #393e3b; -fx-opacity: 0.5; -fx-background-radius: 10;">
+         <effect>
+            <DropShadow color="#753f3f" height="80.3" radius="27.79" spread="0.23" width="32.86" />
+         </effect></AnchorPane>
+      <Hyperlink layoutX="240.0" layoutY="378.0" text="forgot password">
+         <font>
+            <Font size="14.0" />
+         </font></Hyperlink>
+      <AnchorPane layoutX="137.0" layoutY="210.0" prefHeight="5.0" prefWidth="152.0" style="-fx-background-color: #d2b48c; -fx-background-radius: 20;" />
+      <JFXTextField fx:id="username" focusColor="BLACK" layoutX="118.0" layoutY="236.0" prefHeight="35.0" prefWidth="207.0" promptText="Username" style="-fx-background-color: white; -fx-background-radius: 5;" unFocusColor="BLACK">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </JFXTextField>
+      <CheckBox layoutX="74.0" layoutY="382.0" mnemonicParsing="false" text="Remember me" textFill="#2f0202">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </CheckBox>
+      <FontAwesomeIcon fill="WHITE" glyphName="USERS" layoutX="149.0" layoutY="204.0" size="2em" />
+      <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="93.0" layoutY="262.0" size="1.5em" />
+      <FontAwesomeIcon fill="WHITE" glyphName="KEY" layoutX="93.0" layoutY="339.0" size="1.5em" />
+      <JFXPasswordField fx:id="password" layoutX="120.0" layoutY="315.0" prefHeight="35.0" prefWidth="207.0" promptText="Password" style="-fx-background-color: White; -fx-background-radius: 5;">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXButton buttonType="RAISED" layoutX="179.0" layoutY="428.0" onAction="#loginBtnOnAction" prefHeight="33.0" prefWidth="84.0" ripplerFill="WHITE" style="-fx-background-color: #d2b48c; -fx-background-radius: 10;" text="Login" textFill="#0d0707">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="179.0" layoutY="184.0" text="Login Here" textFill="#0d0707">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="125.0" fitWidth="180.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Capture-ree.png" />
+         </image>
+      </ImageView>
+     
+    
+   </children>
+</AnchorPane>

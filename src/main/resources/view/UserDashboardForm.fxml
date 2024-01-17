@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="userDashBoardPane" prefHeight="546.0" prefWidth="790.0" style="-fx-background-color: saddlebrown;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserDashboardFormController">
+   <children>
+      <ImageView fitHeight="555.0" fitWidth="790.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Electronic.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#454c528d" height="462.0" layoutX="6.0" layoutY="75.0" stroke="BLACK" strokeType="INSIDE" width="776.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#454c52ca" height="59.0" layoutX="7.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="776.0" />
+      <Label layoutX="308.0" layoutY="25.0" text="User DashBoard" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <Group layoutX="120.0" layoutY="144.0">
+         <children>
+            <JFXButton buttonType="RAISED" layoutX="15.0" layoutY="27.0" onAction="#addItemBtnOnAction" prefHeight="83.0" prefWidth="94.0" ripplerFill="WHITE" style="-fx-background-color: white; -fx-background-radius: 10;" text="." textFill="#fffdfd">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="66.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/icons8-add-properties-50.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="140.0" layoutY="27.0" onAction="#addCustomerBtnOnAction" prefHeight="83.0" prefWidth="94.0" ripplerFill="WHITE" style="-fx-background-color: white; -fx-background-radius: 10;" text="." textFill="#fffdfd">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/icons8-user-64.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Label layoutX="47.0" text="Item" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="154.0" text="Customer" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="269.0" layoutY="27.0" onAction="#placeOrderBtnOnAction" prefHeight="83.0" prefWidth="94.0" ripplerFill="WHITE" style="-fx-background-color: white; -fx-background-radius: 10;" text="." textFill="#fffdfd">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/icons8-order-64.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Label layoutX="277.0" text="Place Order" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="397.0" layoutY="27.0" onAction="#orderDetailBtnOnAction" prefHeight="83.0" prefWidth="94.0" ripplerFill="WHITE" style="-fx-background-color: white; -fx-background-radius: 10;" text="." textFill="#fffdfd">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/icons8-details-50.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Label layoutX="399.0" text="Order Details" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Group>
+      <Circle fill="WHITE" layoutX="748.0" layoutY="37.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+      <JFXButton layoutX="724.0" layoutY="16.0" onAction="#logOutBtnOnAction" text=".">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/icons8-logout-50.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderReportFormController">
+   <children>
+      <Rectangle arcWidth="5.0" height="42.0" layoutX="7.0" layoutY="7.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" width="668.0" />
+      <JFXButton layoutX="14.0" layoutY="16.0" style="-fx-background-color: brown;" text="Back" textFill="WHITE" />
+      <Label layoutX="309.0" layoutY="18.0" text="Order Report" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Rectangle arcWidth="5.0" height="334.0" layoutX="7.0" layoutY="56.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" width="668.0" />
+      <TableView layoutX="14.0" layoutY="142.0" prefHeight="200.0" prefWidth="654.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Order ID" />
+          <TableColumn prefWidth="83.0" text="Cust ID" />
+            <TableColumn prefWidth="147.0" text="Item" />
+            <TableColumn prefWidth="99.0" text="Date" />
+            <TableColumn prefWidth="79.0" text="Add.Fee" />
+            <TableColumn prefWidth="85.0" text="Net Total" />
+            <TableColumn prefWidth="85.0" text="Add Parts" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
