@@ -58,27 +58,25 @@ public class CustomerDaoImpl implements CustomerDao {
         return list;
     }
 
-    @Override
-    public Customer lastOrder() {
-//        Session session = HibernateUtil.getSession();
-//        CriteriaBuilder builder = session.getCriteriaBuilder();
-//        CriteriaQuery<CustomerDto> query = builder.createQuery(CustomerDto.class);
-//
-//        Root<Customer> customerRoot = query.from(Customer.class);
-//        query.select(builder.construct(CustomerDto.class,
-//                customerRoot.get("custId"),
-//                customerRoot.get("name"),
-//                customerRoot.get("email"),
-//                customerRoot.get("contactNumber")
-//                // Add other fields as needed
-//        ));
-//        query.orderBy(builder.desc(customerRoot.get("custId")));
-//
-//        TypedQuery<CustomerDto> typedQuery = session.createQuery(query);
-//        typedQuery.setMaxResults(1);
-//
-//        return ((Query<CustomerDto>) typedQuery).uniqueResult();
-        return null;
+    public CustomerDto lastOrder() {
+        Session session = HibernateUtil.getSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<CustomerDto> query = builder.createQuery(CustomerDto.class);
+
+        Root<Customer> customerRoot = query.from(Customer.class);
+        query.select(builder.construct(CustomerDto.class,
+                customerRoot.get("custId"),
+                customerRoot.get("Name"),
+                customerRoot.get("Email"),
+                customerRoot.get("ContactNumber"),
+                customerRoot.get("Address")
+        ));
+        query.orderBy(builder.desc(customerRoot.get("custId")));
+
+        TypedQuery<CustomerDto> typedQuery = session.createQuery(query);
+        typedQuery.setMaxResults(1);
+
+        return ((Query<CustomerDto>) typedQuery).uniqueResult();
     }
 
 }

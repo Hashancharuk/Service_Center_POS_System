@@ -45,29 +45,29 @@ public class AddCustomerFormController {
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colOption.setCellValueFactory(new PropertyValueFactory<>("btn"));
         loadCustomerTable();
-//        generateCustomerId();
+        generateCustomerId();
         tableCustomer.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
             setData((CustomerTm)newValue);
         }));
     }
-
-//    private void generateCustomerId() {
-//        try {
-//            CustomerDto dto = customerBo.lastOrder();
-//            if (dto!=null){
-//                String id = dto.getId();
-//                int num = Integer.parseInt(id.split("[C]]")[1]);
-//                num++;
-//                lablCustId.setText(String.format("C%03d",num));
-//            }else{
-//                lablCustId.setText("C001");
-//            }
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        } catch (ClassNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+    int num;
+    private void generateCustomerId() {
+        try {
+            CustomerDto dto = customerBo.lastOrder();
+            if (dto != null) {
+                String id = dto.getId();
+                num = Integer.parseInt(id.split("C")[1]) + 1;
+                lablCustId.setText(String.format("C%03d", num));
+            } else {
+                num = 1;
+                lablCustId.setText(String.format("C%03d", num));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     private void loadCustomerTable() {
         ObservableList<CustomerTm> tmList = FXCollections.observableArrayList();
@@ -119,6 +119,7 @@ public class AddCustomerFormController {
             txtCustEmail.setText(newValue.getEmail());
             txtCustContNum.setText(newValue.getContactNumber());
             txtCustAddress.setText(newValue.getAddress());
+            lablCustId.setText("");
         }
     }
 
@@ -126,14 +127,18 @@ public class AddCustomerFormController {
         try {
             if (customerBo != null) {
                 boolean isSaved = customerBo.saveCustomer(new CustomerDto(
-                        txtCostID.getText(),
+                        lablCustId.getText(),
                         txtCostName.getText(),
                         txtCustEmail.getText(),
                         txtCustContNum.getText(),
                         txtCustAddress.getText()
+
                 ));
                 if (isSaved) {
                     new Alert(Alert.AlertType.INFORMATION, "Customer Saved").show();
+                    clearFields();
+                    loadCustomerTable();
+                    lablCustId.setText(String.format("C%03d", ++num));
                 }
             } else {
                 new Alert(Alert.AlertType.ERROR, "CustomerBo is null").show();
@@ -184,6 +189,7 @@ public class AddCustomerFormController {
         txtCustEmail.clear();
         txtCustContNum.clear();
         txtCustAddress.clear();
+        lablCustId.setText("");
     }
 
     public void reloadButtonOnAction(ActionEvent actionEvent) {

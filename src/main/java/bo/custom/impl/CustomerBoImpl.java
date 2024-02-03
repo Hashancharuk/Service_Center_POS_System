@@ -3,15 +3,10 @@ package bo.custom.impl;
 import bo.custom.CustomerBo;
 import dao.DaoFactory;
 import dao.custom.CustomerDao;
-import dao.custom.impl.CustomerDaoImpl;
 import dao.util.DaoType;
-import db.DBConnection;
 import dto.CustomerDto;
 import entity.Customer;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +59,11 @@ public class CustomerBoImpl implements CustomerBo {
             ));
         }
         return list;
+    }
+
+    @Override
+    public CustomerDto lastOrder() throws SQLException, ClassNotFoundException {
+        return customerDao.lastOrder();
     }
 
 
