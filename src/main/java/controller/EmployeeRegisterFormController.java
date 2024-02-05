@@ -5,6 +5,7 @@ import bo.custom.EmployeeBo;
 import com.jfoenix.controls.RecursiveTreeItem;
 import dao.util.BoType;
 import db.DBConnection;
+import dto.CustomerDto;
 import dto.EmployeeDto;
 import dto.tm.EmployeeTm;
 import javafx.collections.FXCollections;
@@ -42,6 +43,8 @@ public class EmployeeRegisterFormController {
     public TableColumn colAddress;
     public TableColumn colOption;
 
+    public Label labelEmpID;
+
     private EmployeeBo employeeBo = BoFactory.getInstance().getBo(BoType.EMPLOYEE);
 
     public void initialize(){
@@ -53,9 +56,28 @@ public class EmployeeRegisterFormController {
         colAddress.setCellValueFactory(new PropertyValueFactory<>("empAddress"));
         colOption.setCellValueFactory(new PropertyValueFactory<>("btn"));
         loadEmployeeTable();
+        generateEmployeeId();
         tableEmployee.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) ->{
             setData((EmployeeTm) newValue);
         });
+    }
+    int num;
+    private void generateEmployeeId() {
+        try {
+            EmployeeDto dto = employeeBo.lastEmployee();
+            if (dto != null) {
+                String id = dto.getId();
+                num = Integer.parseInt(id.split("E")[1]) + 1;
+                labelEmpID.setText(String.format("E%03d", num));
+            } else {
+                num = 1;
+                labelEmpID.setText(String.format("E%03d", num));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void setData(EmployeeTm newValue) {

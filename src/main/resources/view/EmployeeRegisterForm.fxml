@@ -100,5 +100,10 @@
             <Font name="Arial Bold" size="14.0" />
          </font>
       </JFXButton>
+      <Label fx:id="labelEmpID" layoutX="212.0" layoutY="143.0" text="Label">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

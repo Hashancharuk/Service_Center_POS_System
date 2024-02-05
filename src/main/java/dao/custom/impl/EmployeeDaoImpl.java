@@ -2,12 +2,20 @@ package dao.custom.impl;
 
 import dao.custom.EmployeeDao;
 import dao.util.HibernateUtil;
+import dto.CustomerDto;
+import dto.EmployeeDto;
+import entity.Customer;
 import entity.Employee;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -75,4 +83,28 @@ public class EmployeeDaoImpl implements EmployeeDao {
         List<Employee> list = query.list();
         return list;
     }
+
+    @Override
+    public EmployeeDto lastEmployee() {
+        Session session = HibernateUtil.getSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<EmployeeDto> query = builder.createQuery(EmployeeDto.class);
+
+        Root<Employee> employeeRoot = query.from(Employee.class);
+        query.select(builder.construct(EmployeeDto.class,
+                employeeRoot.get("Employee_ID"),
+                employeeRoot.get("Name"),
+                employeeRoot.get("Email"),
+                employeeRoot.get("Password"),
+                employeeRoot.get("ContactNumber"),
+                employeeRoot.get("Address")
+        ));
+        query.orderBy(builder.desc(employeeRoot.get("Employee_ID")));
+
+        TypedQuery<EmployeeDto> typedQuery = session.createQuery(query);
+        typedQuery.setMaxResults(1);
+
+        return ((Query<EmployeeDto>) typedQuery).uniqueResult();
+    }
+
 }

@@ -56,4 +56,9 @@ public class EmployeeBoImpl implements EmployeeBo {
         }
         return list;
     }
+
+    @Override
+    public EmployeeDto lastEmployee() throws SQLException, ClassNotFoundException {
+        return employeeDao.lastEmployee();
+    }
 }

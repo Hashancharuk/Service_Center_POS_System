@@ -80,4 +80,8 @@ public class EmployeeDto {
                 ", employeeAddress='" + employeeAddress + '\'' +
                 '}';
     }
+
+    public String getId() {
+        return employeeId;
+    }
 }
