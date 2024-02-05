@@ -89,6 +89,7 @@ public class EmployeeRegisterFormController {
             txtEmpPassword.setText(newValue.getEmpPassword());
             txtEmpContNum.setText(newValue.getEmpContNum());
             txtEmpAddress.setText(newValue.getEmpAddress());
+            labelEmpID.setText("");
         }
     }
 
@@ -139,6 +140,7 @@ public class EmployeeRegisterFormController {
                     ));
             if (isSaved){
                 new Alert(Alert.AlertType.INFORMATION,"Employee Saved!").show();
+                labelEmpID.setText(String.format("E%03d",++num));
             }else {
                 new Alert(Alert.AlertType.ERROR,"Duplicate Entry").show();
             }

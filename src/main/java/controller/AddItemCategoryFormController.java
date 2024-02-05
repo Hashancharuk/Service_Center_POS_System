@@ -4,6 +4,7 @@ import bo.BoFactory;
 import bo.custom.ItemCategoryBo;
 import com.jfoenix.controls.JFXComboBox;
 import dao.util.BoType;
+import dto.CustomerDto;
 import dto.ItemCategoryDto;
 import dto.tm.ItemCategoryTm;
 import javafx.collections.FXCollections;
@@ -35,6 +36,7 @@ public class AddItemCategoryFormController implements Initializable {
 
     public ItemCategoryBo itemCategoryBo = BoFactory.getInstance().getBo(BoType.ITEMCATEGORY);
     public AnchorPane addItemPane;
+    public Label labelItemCode;
 
     private void setData(ItemCategoryTm newValue) {
         if (newValue != null) {
@@ -87,7 +89,7 @@ public class AddItemCategoryFormController implements Initializable {
         try {
             boolean isSaved = itemCategoryBo.saveItem(
                     new ItemCategoryDto(
-                            txtItemCode.getText(),
+                            labelItemCode.getText(),
                             txtItemName.getText(),
                             cmbCategory.getSelectionModel().getSelectedItem().toString()
                     ));
@@ -95,6 +97,7 @@ public class AddItemCategoryFormController implements Initializable {
                 new Alert(Alert.AlertType.INFORMATION,"Item Saved!").show();
                 loadItemCategoryTable();
                 clearFields();
+                labelItemCode.setText(String.format("I%03d",++num));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -130,7 +133,7 @@ public class AddItemCategoryFormController implements Initializable {
         colCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colOption.setCellValueFactory(new PropertyValueFactory<>("btn"));
-
+        generateItemCode();
         loadItemCategoryTable();
 
         tableItem.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) ->{
@@ -138,6 +141,24 @@ public class AddItemCategoryFormController implements Initializable {
                 setData((ItemCategoryTm) newValue);
             }
         } ));
+    }
+    int num;
+    private void generateItemCode() {
+        try {
+            ItemCategoryDto dto = itemCategoryBo.lastItemCode();
+            if (dto != null) {
+                String id = dto.getId();
+                num = Integer.parseInt(id.split("I")[1]) + 1;
+                labelItemCode.setText(String.format("I%03d", num));
+            } else {
+                num = 1;
+                labelItemCode.setText(String.format("I%03d", num));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void reloadbtnOnAction(ActionEvent actionEvent) {
@@ -150,6 +171,8 @@ public class AddItemCategoryFormController implements Initializable {
         tableItem.refresh();
         txtItemName.clear();
         txtItemCode.clear();
+        labelItemCode.setText("");
+        cmbCategory.getItems().clear();
     }
 
     public void backBtnOnAction(ActionEvent actionEvent) {
@@ -162,3 +185,4 @@ public class AddItemCategoryFormController implements Initializable {
         }
     }
 }
+

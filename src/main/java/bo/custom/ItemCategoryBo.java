@@ -11,4 +11,6 @@ public interface ItemCategoryBo extends SuperBo {
     boolean updateItem(ItemCategoryDto dto)throws SQLException, ClassNotFoundException;
     boolean deleteItem(String id) throws SQLException, ClassNotFoundException;
     List<ItemCategoryDto> allItems() throws SQLException, ClassNotFoundException;
+
+    ItemCategoryDto lastItemCode() throws SQLException, ClassNotFoundException;
 }

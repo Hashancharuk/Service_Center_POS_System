@@ -36,19 +36,15 @@ public class EmployeeDaoImpl implements EmployeeDao {
         Transaction transaction = session.beginTransaction();
 
         try {
-            // Retrieve the existing employee from the session
             Employee employee = session.get(Employee.class, entity.getEmployee_ID());
 
-            // Check if the employee exists
             if (employee != null) {
-                // Update the employee details
+
                 employee.setName(entity.getName());
                 employee.setEmail(entity.getEmail());
-//                employee.setPassword(entity.getPassword());
                 employee.setContactNumber(entity.getContactNumber());
                 employee.setAddress(entity.getAddress());
 
-                // Save the updated employee back to the database
                 session.update(employee);
 
                 transaction.commit();
@@ -106,5 +102,4 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
         return ((Query<EmployeeDto>) typedQuery).uniqueResult();
     }
-
 }

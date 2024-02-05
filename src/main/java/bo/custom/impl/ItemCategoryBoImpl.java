@@ -57,4 +57,9 @@ public class ItemCategoryBoImpl implements ItemCategoryBo {
         return list;
     }
 
+    @Override
+    public ItemCategoryDto lastItemCode() throws SQLException, ClassNotFoundException {
+        return itemCategoryDao.lastItemCode();
+    }
+
 }
