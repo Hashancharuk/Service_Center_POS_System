@@ -115,5 +115,10 @@
       <JFXButton layoutX="558.0" layoutY="267.0" onAction="#saveBtnOnAction" style="-fx-background-color: #64957d;" text="Save" />
       <JFXButton layoutX="608.0" layoutY="267.0" onAction="#updateBtnOnAction" style="-fx-background-color: #64957d;" text="Update" />
       <JFXComboBox fx:id="cmbCustID" layoutX="157.0" layoutY="105.0" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: white;" unFocusColor="BLACK" />
+      <Label fx:id="labelOrderID" layoutX="252.0" layoutY="150.0" text="Label">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

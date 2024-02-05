@@ -12,4 +12,5 @@ public interface PlaceOrderDetailBo extends SuperBo {
     boolean deleteOrder(String id)throws SQLException, ClassNotFoundException;
     List<PlaceOrderDetailDto> allPlaceOrders() throws SQLException, ClassNotFoundException;
 
+    PlaceOrderDetailDto lastOrderCode()throws SQLException, ClassNotFoundException;
 }

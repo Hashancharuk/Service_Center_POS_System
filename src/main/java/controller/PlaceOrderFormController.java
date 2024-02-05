@@ -56,6 +56,7 @@ public class PlaceOrderFormController {
     public TextField txtCustID;
     public JFXComboBox cmbCustID;
     public AnchorPane placeOrderFormPane;
+    public Label labelOrderID;
 
     private List<ItemCategoryDto> itemCategory;
     private List<CustomerDto> customers;
@@ -79,7 +80,8 @@ public class PlaceOrderFormController {
     public void saveBtnOnAction(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
         try {
             boolean isSaved = placeOrderDetailBo.saveOrder(new PlaceOrderDetailDto(
-                    txtOrderId.getText(),
+                    labelOrderID.getText(),
+//                    txtOrderId.getText(),
                     txtCustID.getText(),
                     txtCostName.getText(),
                     cmbItemCategory.getSelectionModel().getSelectedItem().toString(),
@@ -92,6 +94,7 @@ public class PlaceOrderFormController {
                 new Alert(Alert.AlertType.INFORMATION,"Order Placed!").show();
                 loadPlaceOrderDetails();
                 clearFields();
+                labelOrderID.setText(String.format("OR%03d",++num));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -104,18 +107,18 @@ public class PlaceOrderFormController {
         tableOrderDetails.refresh();
         txtOrderId.clear();
         txtCostName.clear();
-        txtCustId.clear();
         cmbItemCategory.getSelectionModel().clearSelection();
         cmbItem.getSelectionModel().clearSelection();
-        txtDate.clear();
         txtQty.clear();
         txtFault.clear();
+        labelOrderID.setText("");
     }
 
     public void updateBtnOnAction(ActionEvent actionEvent) {
 
     }
     public void initialize() throws SQLException, ClassNotFoundException {
+        generateOrderID();
         loadDateAndTime();
         loadItemCategory();
         loadItems();
@@ -154,6 +157,28 @@ public class PlaceOrderFormController {
         tableOrderDetails.setShowRoot(false);
         tableOrderDetails.getSelectionModel().selectedItemProperty().addListener(this::changed);
     }
+    int num;
+    private void generateOrderID() {
+        try {
+            PlaceOrderDetailDto dto = placeOrderDetailBo.lastOrderCode();
+            if (dto != null) {
+                String id = dto.getId();
+                num = Integer.parseInt(id.split("OR")[1]) + 1;
+                labelOrderID.setText(String.format("OR%03d", num));
+                System.out.println("Last Order Code: " + dto.getId());
+            } else {
+                num = 1;
+                labelOrderID.setText(String.format("OR%03d", num));
+                System.out.println("No Previous Order Code found.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 
     private void changed(Observable observable) {
 
@@ -180,7 +205,7 @@ public class PlaceOrderFormController {
                         dto.getItemCategory(),
                         dto.getItemName(),
                         dto.getDate(),
-                        dto.getQty(),
+                        dto.getQty(),  // Use dto.getQty() instead of parsing it
                         dto.getFault(),
                         btn
                 );
@@ -194,6 +219,7 @@ public class PlaceOrderFormController {
 
         return tmList;
     }
+
 
 
     private void deleteOrders(String orderId) {

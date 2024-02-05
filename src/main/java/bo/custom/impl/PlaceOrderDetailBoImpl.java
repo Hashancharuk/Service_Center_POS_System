@@ -55,4 +55,9 @@ public class PlaceOrderDetailBoImpl implements PlaceOrderDetailBo {
         }
         return list;
     }
+
+    @Override
+    public PlaceOrderDetailDto lastOrderCode() throws SQLException, ClassNotFoundException {
+        return placeOrderDetailDao.lastOrderCode();
+    }
 }
