@@ -57,7 +57,8 @@ public class PlaceOrderDetailDaoImpl implements PlaceOrderDetailDao {
         Root<PlaceOrderDetail> placeOrderDetailRoot = query.from(PlaceOrderDetail.class);
         query.select(builder.construct(PlaceOrderDetailDto.class,
                 placeOrderDetailRoot.get("orderId"),
-                placeOrderDetailRoot.get("custId"),
+                placeOrderDetailRoot.get("email"),
+                placeOrderDetailRoot.get("contactNumber"),
                 placeOrderDetailRoot.get("name"),
                 placeOrderDetailRoot.get("itemCategory"),
                 placeOrderDetailRoot.get("itemName"),

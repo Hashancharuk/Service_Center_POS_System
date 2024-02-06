@@ -17,13 +17,14 @@ public class PlaceOrderDetailBoImpl implements PlaceOrderDetailBo {
     public boolean saveOrder(PlaceOrderDetailDto dto) throws SQLException, ClassNotFoundException {
         return placeOrderDetailDao.save(new PlaceOrderDetail(
                 dto.getOrderId(),
-                dto.getCustId(),
+                dto.getEmail(),
                 dto.getName(),
                 dto.getItemCategory(),
                 dto.getItemName(),
                 dto.getDate(),
+                dto.getFault(),
                 dto.getQty(),
-                dto.getFault()
+                dto.getContactNumber()
         ));
     }
 
@@ -44,7 +45,8 @@ public class PlaceOrderDetailBoImpl implements PlaceOrderDetailBo {
         for (PlaceOrderDetail placeOrderDetail : entityList) {
             list.add(new PlaceOrderDetailDto(
                     placeOrderDetail.getOrderId(),
-                    placeOrderDetail.getCustId(),
+                    placeOrderDetail.getOrderId(),
+                    placeOrderDetail.getContactNumber(),
                     placeOrderDetail.getName(),
                     placeOrderDetail.getItemCategory(),
                     placeOrderDetail.getItemName(),

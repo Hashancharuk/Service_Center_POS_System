@@ -15,7 +15,8 @@ import javax.persistence.Id;
 public class PlaceOrderDetail {
     @Id
     private String orderId;
-    private String custId;
+    private String email;
+    private String contactNumber;
     private String name;
     private String itemCategory;
     private String itemName;

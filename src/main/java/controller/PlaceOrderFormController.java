@@ -57,6 +57,10 @@ public class PlaceOrderFormController {
     public JFXComboBox cmbCustID;
     public AnchorPane placeOrderFormPane;
     public Label labelOrderID;
+    public TextField txtCustEmail;
+    public TextField txtCustNumber;
+    public TreeTableColumn colEmail;
+    public TreeTableColumn colNumber;
 
     private List<ItemCategoryDto> itemCategory;
     private List<CustomerDto> customers;
@@ -81,8 +85,8 @@ public class PlaceOrderFormController {
         try {
             boolean isSaved = placeOrderDetailBo.saveOrder(new PlaceOrderDetailDto(
                     labelOrderID.getText(),
-//                    txtOrderId.getText(),
-                    txtCustID.getText(),
+                    txtCustEmail.getText(),
+                    txtCustNumber.getText(),
                     txtCostName.getText(),
                     cmbItemCategory.getSelectionModel().getSelectedItem().toString(),
                     cmbItem.getSelectionModel().getSelectedItem().toString(),
@@ -128,7 +132,8 @@ public class PlaceOrderFormController {
             for (CustomerDto dto: customers) {
                 if (dto.getId().equals(id)){
                     txtCostName.setText(dto.getName());
-                    txtCustID.setText(dto.getId());
+                    txtCustEmail.setText(dto.getEmail());
+                    txtCustNumber.setText(dto.getContactNumber());
                 }
             }
         }));
@@ -141,7 +146,8 @@ public class PlaceOrderFormController {
             }
         }));
         colOrderId.setCellValueFactory(new TreeItemPropertyValueFactory<>("orderId"));
-        colCustId.setCellValueFactory(new TreeItemPropertyValueFactory<>("custId"));
+        colEmail.setCellValueFactory(new TreeItemPropertyValueFactory<>("email"));
+        colNumber.setCellValueFactory(new TreeItemPropertyValueFactory<>("contactNumber"));
         colName.setCellValueFactory(new TreeItemPropertyValueFactory<>("name"));
         colItemCategory.setCellValueFactory(new TreeItemPropertyValueFactory<>("itemCategory"));
         colItemName.setCellValueFactory(new TreeItemPropertyValueFactory<>("itemName"));
@@ -200,12 +206,13 @@ public class PlaceOrderFormController {
                 Button btn = new Button("Delete");
                 PlaceOrderDetailsTm po = new PlaceOrderDetailsTm(
                         dto.getOrderId(),
-                        dto.getCustId(),
+                        dto.getEmail(),
+                        dto.getContactNumber(),
                         dto.getName(),
                         dto.getItemCategory(),
                         dto.getItemName(),
                         dto.getDate(),
-                        dto.getQty(),  // Use dto.getQty() instead of parsing it
+                        dto.getQty(),
                         dto.getFault(),
                         btn
                 );
@@ -229,7 +236,8 @@ public class PlaceOrderFormController {
     private void setData(PlaceOrderDetailsTm newValue) {
         if (newValue != null){
             txtOrderId.setText(newValue.getOrderId());
-            txtCustID.setText(newValue.getCustId());
+            txtCustEmail.setText(newValue.getEmail());
+            txtCustNumber.setText(newValue.getContactNumber());
             txtCostName.setText(newValue.getName());
             cmbItemCategory.getSelectionModel().getSelectedItem().toString();
             cmbItem.getSelectionModel().getSelectedItem().toString();

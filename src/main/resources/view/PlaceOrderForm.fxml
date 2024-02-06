@@ -4,8 +4,10 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -26,41 +28,41 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="115.0" layoutY="149.0" text="Order ID" textFill="WHITE">
+      <Label layoutX="59.0" layoutY="134.0" text="Order ID" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtOrderId" layoutX="246.0" layoutY="145.0" prefHeight="25.0" prefWidth="164.0" />
-      <Label layoutX="115.0" layoutY="179.0" text="Customer Name" textFill="WHITE">
+      <TextField fx:id="txtOrderId" layoutX="190.0" layoutY="130.0" prefHeight="25.0" prefWidth="164.0" />
+      <Label layoutX="59.0" layoutY="164.0" text="Customer Name" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCostName" layoutX="247.0" layoutY="175.0" prefHeight="25.0" prefWidth="164.0" promptText="First Name" />
-      <Label layoutX="115.0" layoutY="208.0" text="Customer ID" textFill="WHITE">
+      <TextField fx:id="txtCostName" layoutX="191.0" layoutY="160.0" prefHeight="25.0" prefWidth="164.0" promptText="First Name" />
+      <Label layoutX="59.0" layoutY="194.0" text="Customer Email" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="493.0" layoutY="149.0" text="Item" textFill="WHITE">
+      <Label layoutX="415.0" layoutY="134.0" text="Item" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="493.0" layoutY="179.0" text="Date" textFill="WHITE">
+      <Label layoutX="415.0" layoutY="164.0" text="Date" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDate" layoutX="545.0" layoutY="175.0" prefHeight="25.0" prefWidth="164.0" />
-      <Label layoutX="496.0" layoutY="241.0" text="Fault" textFill="WHITE">
+      <TextField fx:id="txtDate" layoutX="467.0" layoutY="160.0" prefHeight="25.0" prefWidth="164.0" />
+      <Label layoutX="418.0" layoutY="226.0" text="Fault" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtFault" layoutX="547.0" layoutY="236.0" prefHeight="25.0" prefWidth="164.0" />
-      <Label layoutX="14.0" layoutY="109.0" text="Search Customer ID" textFill="WHITE">
+      <TextField fx:id="txtFault" layoutX="468.0" layoutY="221.0" prefHeight="25.0" prefWidth="164.0" />
+      <Label layoutX="14.0" layoutY="93.0" text="Search Customer ID" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
@@ -80,44 +82,59 @@
             <Image url="@../Images/home-64.png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="422.0" layoutY="147.0" onAction="#addBtnOnAction" ripplerFill="WHITE" style="-fx-background-color: darkred;" text="Add" textFill="#fffdfd">
+      <JFXButton buttonType="RAISED" layoutX="366.0" layoutY="133.0" onAction="#addBtnOnAction" ripplerFill="WHITE" style="-fx-background-color: darkred;" text="Add" textFill="#fffdfd">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXComboBox fx:id="cmbItem" layoutX="545.0" layoutY="145.0" prefHeight="25.0" prefWidth="164.0" style="-fx-background-color: white;" unFocusColor="BLACK" />
-      <Label layoutX="494.0" layoutY="209.0" text="Qty" textFill="WHITE">
+      <JFXComboBox fx:id="cmbItem" layoutX="467.0" layoutY="130.0" prefHeight="25.0" prefWidth="164.0" style="-fx-background-color: white;" unFocusColor="BLACK" />
+      <Label layoutX="416.0" layoutY="194.0" text="Qty" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtQty" layoutX="546.0" layoutY="205.0" prefHeight="25.0" prefWidth="164.0" />
-      <Label layoutX="116.0" layoutY="239.0" text="Item Catergory" textFill="WHITE">
+      <TextField fx:id="txtQty" layoutX="468.0" layoutY="190.0" prefHeight="25.0" prefWidth="164.0" />
+      <Label layoutX="60.0" layoutY="224.0" text="Item Category" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="cmbItemCategory" layoutX="247.0" layoutY="235.0" prefHeight="25.0" prefWidth="164.0" style="-fx-background-color: white;" unFocusColor="BLACK" />
-      <TextField fx:id="txtCustID" layoutX="246.0" layoutY="204.0" prefHeight="25.0" prefWidth="164.0" />
+      <JFXComboBox fx:id="cmbItemCategory" layoutX="191.0" layoutY="220.0" prefHeight="25.0" prefWidth="164.0" style="-fx-background-color: white;" unFocusColor="BLACK" />
+      <TextField fx:id="txtCustEmail" layoutX="190.0" layoutY="190.0" prefHeight="25.0" prefWidth="164.0" />
       <JFXTreeTableView fx:id="tableOrderDetails" layoutX="24.0" layoutY="298.0" prefHeight="260.0" prefWidth="799.0">
          <columns>
-            <TreeTableColumn fx:id="colOrderId" prefWidth="75.0" text="Order ID" />
-            <TreeTableColumn fx:id="colCustId" prefWidth="82.0" text="Customer ID" />
-            <TreeTableColumn fx:id="colName" prefWidth="82.0" text="Name" />
-            <TreeTableColumn fx:id="colItemCategory" prefWidth="89.0" text="Item Category" />
-            <TreeTableColumn fx:id="colItemName" prefWidth="89.0" text="Item Name" />
-            <TreeTableColumn fx:id="colDate" prefWidth="106.0" text="Date" />
-            <TreeTableColumn fx:id="colQty" prefWidth="47.0" text="Qty" />
-            <TreeTableColumn fx:id="colFault" prefWidth="143.0" text="Fault" />
-            <TreeTableColumn fx:id="colOption" prefWidth="85.0" text="Option" />
+            <TreeTableColumn fx:id="colOrderId" prefWidth="64.0" text="Order ID" />
+            <TreeTableColumn fx:id="colEmail" prefWidth="86.0" text="Email" />
+            <TreeTableColumn fx:id="colNumber" prefWidth="89.0" text="4n-Number" />
+            <TreeTableColumn fx:id="colName" prefWidth="76.0" text="Name" />
+            <TreeTableColumn fx:id="colItemCategory" prefWidth="85.0" text="Category" />
+            <TreeTableColumn fx:id="colItemName" text="Item Name" />
+            <TreeTableColumn fx:id="colDate" prefWidth="85.0" text="Date" />
+            <TreeTableColumn fx:id="colQty" prefWidth="57.0" text="Qty" />
+            <TreeTableColumn fx:id="colFault" prefWidth="98.0" text="Fault" />
+            <TreeTableColumn fx:id="colOption" prefWidth="84.0" text="Option" />
          </columns>
       </JFXTreeTableView>
-      <JFXButton layoutX="558.0" layoutY="267.0" onAction="#saveBtnOnAction" style="-fx-background-color: #64957d;" text="Save" />
-      <JFXButton layoutX="608.0" layoutY="267.0" onAction="#updateBtnOnAction" style="-fx-background-color: #64957d;" text="Update" />
-      <JFXComboBox fx:id="cmbCustID" layoutX="157.0" layoutY="105.0" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: white;" unFocusColor="BLACK" />
-      <Label fx:id="labelOrderID" layoutX="252.0" layoutY="150.0" text="Label">
+      <JFXButton layoutX="663.0" layoutY="132.0" onAction="#saveBtnOnAction" style="-fx-background-color: #64957d;" text="Save">
          <font>
             <Font name="Arial Bold" size="12.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="663.0" layoutY="173.0" onAction="#updateBtnOnAction" style="-fx-background-color: #64957d;" text="Update" />
+      <JFXComboBox fx:id="cmbCustID" layoutX="157.0" layoutY="89.0" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: white;" unFocusColor="BLACK" />
+      <Label fx:id="labelOrderID" layoutX="196.0" layoutY="135.0" text="Label">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </Label>
+      <Separator layoutX="647.0" layoutY="121.0" orientation="VERTICAL" prefHeight="146.0" prefWidth="0.0" style="-fx-background-color: Black;">
+         <effect>
+            <Glow />
+         </effect>
+      </Separator>
+      <TextField fx:id="txtCustNumber" layoutX="191.0" layoutY="252.0" prefHeight="25.0" prefWidth="164.0" />
+      <Label layoutX="60.0" layoutY="256.0" text="Contatct Number" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
    </children>

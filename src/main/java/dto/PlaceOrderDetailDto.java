@@ -8,7 +8,8 @@ import lombok.*;
 @Getter
 public class PlaceOrderDetailDto {
     private String orderId;
-    private String custId;
+    private String email;
+    private String contactNumber;
     private String name;
     private String itemCategory;
     private String itemName;
